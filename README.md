@@ -17,3 +17,7 @@ I'm a Automation consultant exploring the power of automation with n8n. This rep
 - Learn by doing
 - Share reusable n8n flows
 - Build a public portfolio of automation projects
+
+## Workflows
+
+- [Send Weekly Email](flows/send-weekly-email/description.md)
