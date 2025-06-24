@@ -1,0 +1,195 @@
+{
+  "name": "Airtable",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Stay Form",
+        "formDescription": "Share Details about your Room",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "No of Persons",
+              "fieldType": "number",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Room Preference?",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Single Room"
+                  },
+                  {
+                    "option": "Deluxe Room"
+                  },
+                  {
+                    "option": "Suite"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -300,
+        -40
+      ],
+      "id": "653e9472-66fc-44aa-95ad-f013515673e7",
+      "name": "On form submission",
+      "webhookId": "8b9fae2d-e5c8-4e34-8c07-fa790aa43a08"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app1jdNl1E863Rz4E",
+          "mode": "list",
+          "cachedResultName": "RoomsInformation",
+          "cachedResultUrl": "https://airtable.com/app1jdNl1E863Rz4E"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbllupkpljoscDrFl",
+          "mode": "list",
+          "cachedResultName": "RoomsInformation",
+          "cachedResultUrl": "https://airtable.com/app1jdNl1E863Rz4E/tbllupkpljoscDrFl"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.Name }}",
+            "No Of Persons": "={{ $json['No of Persons'] }}",
+            "Room Type": "={{ $json['Room Preference?'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No Of Persons",
+              "displayName": "No Of Persons",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Room Type",
+              "displayName": "Room Type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "In progress",
+                  "value": "In progress"
+                },
+                {
+                  "name": "Done",
+                  "value": "Done"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Attachment Summary",
+              "displayName": "Attachment Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -80,
+        -40
+      ],
+      "id": "b181f46e-d6b9-44e5-9454-cb794c2de32c",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "JHuGRi0xXuh7TtdN",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "2acda107-9430-4a35-9e9a-9838b52ff25d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2a11b2c35ac6c7ef4cb78d417c0d2dc83c3776f335bec717acc2317f2369f41e"
+  },
+  "id": "LHmCsYprCRlgcVmG",
+  "tags": []
+}
