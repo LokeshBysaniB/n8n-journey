@@ -79,3 +79,13 @@ Examples include:
 
 - LLMs can query vector databases (e.g., through similarity search) to retrieve semantically relevant chunks of data (documents, text, etc.), which are then used to formulate answers or responses.
 - This is a core part of Retrieval-Augmented Generation (RAG).
+
+### N8N local Installation
+
+- Install node.js
+- Install NVM
+- npm install n8n -g
+To open n8n open cmd and then enter n8n local n8n installation runs and you can access it using localhost url provided in cmd
+- npm update -g n8n - This is to update n8n as n8n frequently updates its repo
+
+
