@@ -22,3 +22,4 @@ I'm a Automation consultant exploring the power of automation with n8n. This rep
 
 - [Send Weekly Email](flows/send-weekly-email/description.md)
 - [Form-to-Airtable](flows/Form-to-airtable/description.md)
+- [SentimentAnlaysis](flows/SentimentAnalysis/description.md)
